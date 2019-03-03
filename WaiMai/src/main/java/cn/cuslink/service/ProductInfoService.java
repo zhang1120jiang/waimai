@@ -18,6 +18,10 @@ public interface ProductInfoService {
    List<ProductInfo> findByType(int categoryType);
    // 分页查询
    List<ProductInfo> findByPage(int pageSize, int pageNum);
+
+   ProductInfo findByProductId(String productId);
    // 加库存
+   void increaseStock(ProductInfo productInfo, int productQuantity);
    // 减库存
+   void decreaseStock(ProductInfo productInfo, int productQuantity);
 }

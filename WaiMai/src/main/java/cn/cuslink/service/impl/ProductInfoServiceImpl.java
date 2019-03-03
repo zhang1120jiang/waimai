@@ -9,7 +9,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import java.awt.print.Pageable;
 import java.util.List;
 
 /**
@@ -48,5 +47,33 @@ public class ProductInfoServiceImpl implements ProductInfoService {
       PageRequest pageRequest = PageRequest.of(pageNum, pageSize, Sort.Direction.DESC, "updateTime");
       Page<ProductInfo> infoPage = productInfoDao.findAll(pageRequest);
       return infoPage.getContent();
+   }
+   // 通过id查询商品信息
+   @Override
+   public ProductInfo findByProductId(String productId) {
+      return productInfoDao.findByProductId(productId);
+   }
+
+   /**
+    * 加库存
+    * @param productInfo
+    * @param productQuantity
+    */
+   @Override
+   public void increaseStock(ProductInfo productInfo, int productQuantity) {
+      int stock = productInfo.getProductStock();
+      productInfo.setProductStock(stock + productQuantity);
+   }
+
+   /**
+    * 减库存
+    * @param productInfo
+    * @param productStock
+    * @return
+    */
+   @Override
+   public void decreaseStock(ProductInfo productInfo, int productQuantity) {
+      int stock = productInfo.getProductStock();
+      productInfo.setProductStock(stock - productQuantity);
    }
 }

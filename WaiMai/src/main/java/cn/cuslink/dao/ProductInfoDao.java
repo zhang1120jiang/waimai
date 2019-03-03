@@ -10,7 +10,9 @@ import java.util.List;
  * @Date:Create in 16:44 2019/2/25
  */
 
-public interface ProductInfoDao extends JpaRepository<ProductInfo,Integer> {
+public interface ProductInfoDao extends JpaRepository<ProductInfo,String> {
+
+   ProductInfo findByProductId(String productId);
 
    List<ProductInfo> findByCategoryType(int categoryType);
 

@@ -6,7 +6,7 @@ import cn.cuslink.pojo.ProductInfo;
 import cn.cuslink.pojo.ProductInfoJsonData;
 import cn.cuslink.service.ProductCategoryService;
 import cn.cuslink.service.ProductInfoService;
-import cn.cuslink.utils.ProductJsonUtil;
+import cn.cuslink.utils.ObjectJsonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -42,7 +42,7 @@ public class ProductCategoryController {
          List<ProductInfo> byType = productInfoService.findByType(categoryType);
          productCategroy.setFoods(byType);
       }
-      ProductInfoJsonData productInfoData = ProductJsonUtil.getProductInfoData(
+      ProductInfoJsonData productInfoData = ObjectJsonUtil.getProductInfoData(
               ProductInfoJsonType.SUCCESS.getCode(),
               ProductInfoJsonType.SUCCESS.getMsg(), categoryServiceAll);
       return productInfoData;
