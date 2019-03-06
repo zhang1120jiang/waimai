@@ -4,11 +4,22 @@ spring:
     username: root
     password: 123456
     driver-class-name: com.mysql.jdbc.Driver
-    #url: jdbc:mysql://172.16.18.51:3306/waimai?Unicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false
-    url: jdbc:mysql://192.168.1.104:3306/waimai?Unicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false
+#    url: jdbc:mysql://172.16.18.33:3306/waimai?Unicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&useSSL=false
+    url: jdbc:mysql://192.168.1.102:3306/waimai?Unicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false
   jpa:
     show-sql: true
 server:
   servlet:
     context-path: /sell
 
+wxaccount:
+    mpAppId: wx79716cc13fa55091
+    mpAppSecret: d7e5fc78fe934e97670e8fe6d358327e
+    openAppId: wx6ad144e54af67d87
+    openAppSecret: 91a2ff6d38a2bbccfb7e9f9079108e2e
+    mchId: 1483469312
+    mchKey: 06C56A89949D617xxxxxxxxxxx
+    keyPath: /var/weixin_cert/h5.p12
+    notifyUrl: http://sell.natapp4.cc/sell/pay/notify
+    templateId:
+      orderStatus: e-Cqq67QxD6YNI41iRiqawEYdFavW_7pc7LyEMb-yeQ
